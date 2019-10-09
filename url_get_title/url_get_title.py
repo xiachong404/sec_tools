@@ -18,7 +18,7 @@ def btdk(url):
         #html = requests.get(url, timeout = 10).text
     except:
         html = '<html><title>%s</title><meta name="keywords" content="" /><meta name="description" content="" /></html>'%url
-    soup = BeautifulSoup(html.lower(),"html.parsar")
+    soup = BeautifulSoup(html.lower(),"html.parser")
     t = soup.title.text.encode('utf8','ignore')
     try:
         k = soup.find(attrs={"name":"keywords"})['content'].encode('utf8','ignore')
