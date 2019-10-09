@@ -12,7 +12,10 @@ with open('url.txt') as f:
 
 def btdk(url):
     try:
-        html = requests.get(url, timeout = 10).text
+        res  = requests.get(url, timeout = 10)
+        res.encoding = res.apparent_encoding
+        html = res.text
+        #html = requests.get(url, timeout = 10).text
     except:
         html = '<html><title>%s</title><meta name="keywords" content="" /><meta name="description" content="" /></html>'%url
     soup = BeautifulSoup(html.lower(),"html.parsar")
